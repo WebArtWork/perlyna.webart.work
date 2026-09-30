@@ -25,3 +25,6 @@ Live site: https://perlyna.webart.work
 
 ## Notes
 The page repeatedly flags several details as unconfirmed: the exact number and category of rooms, room size and pricing, breakfast format (included or paid) and hours, parking capacity and conditions, EV charger type/power/count, check-in and check-out times, and guest ratings/reviews. It asks visitors to confirm these details by phone before booking.
+
+## Forms
+Connected to HotelOS (`hotelId` kp-perlyna): `stay-request` (no room-type select, categories are unverified). Phone is the only required field.

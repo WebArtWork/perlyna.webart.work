@@ -77,6 +77,14 @@
     .feature-media img{transition:transform 1.1s cubic-bezier(.16,.8,.3,1)}.feature-media:hover img{transform:scale(1.06)}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal,.reveal-item{opacity:1;transform:none;transition:none}.btn{transition:none}.hero-media{transform:none!important}.room img,.outside-card img,.gallery figure img,.feature-media img{transition:none}}
     .reviews{background:var(--white)}.reviews-box{margin-top:20px;padding:24px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);font-size:.9rem;max-width:640px}
+    .request{background:var(--cream)}.request-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}.request-phone{display:inline-block;margin-top:18px;font:700 clamp(1.5rem,3vw,2.1rem) var(--serif);color:var(--terracotta)}
+    .request-form{display:grid;grid-template-columns:1fr 1fr;gap:16px 14px;background:var(--white);border:1px solid var(--line);border-radius:18px;padding:32px}
+    .request-form .field{display:grid;gap:6px;align-content:start;font-size:.8rem;font-weight:700}.request-form .field.full{grid-column:1/-1}.request-form .field small{font-weight:400;color:var(--muted)}
+    .request-form input,.request-form textarea{width:100%;min-height:50px;padding:11px 15px;border:1px solid var(--line);border-radius:12px;background:var(--cream);color:var(--graphite);font:400 1rem var(--sans)}.request-form textarea{min-height:110px;resize:vertical}
+    .request-form input:focus-visible,.request-form textarea:focus-visible{outline:3px solid var(--gold);outline-offset:1px}.request-form [aria-invalid=true]{border-color:var(--terracotta);box-shadow:0 0 0 1px var(--terracotta)}
+    [data-error-for]{font-weight:600;color:#a4502c}[data-error-for]:empty{display:none}.trap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+    .request-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:14px}.request-foot .btn[disabled]{opacity:.6;cursor:wait;transform:none}.request-note{flex:1;min-width:200px;margin:0;font-size:.78rem;color:var(--muted)}
+    [data-status]{grid-column:1/-1;margin:0;padding:14px 16px;border-left:4px solid var(--olive);background:var(--sand);border-radius:0 12px 12px 0;font-size:.9rem}[data-status]:empty{display:none}[data-status][data-state=error]{border-color:var(--terracotta)}[data-status] a{font-weight:700;text-decoration:underline}
     .booking{background:var(--sand)}
     .final{min-height:460px;position:relative;display:grid;place-items:center;text-align:center;color:#fff;overflow:hidden}.final img{position:absolute;inset:0;height:100%;object-fit:cover}
     .final:after{content:"";position:absolute;inset:0;background:rgba(51,42,34,.68)}.final>div{position:relative;z-index:1;padding:60px 20px;max-width:700px}
@@ -85,10 +93,10 @@
     .footer-brand small{display:block;color:#9a9081;margin-top:6px}.footer-col b{display:block;color:#fff;margin-bottom:9px;font-size:.85rem}.footer-col a{display:block;color:#b0a795;margin:6px 0;font-size:.86rem}
     .footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:34px;padding-top:18px;display:flex;justify-content:space-between;color:#8b8172;font-size:.75rem}.mobile-sticky{display:none}
     @media(max-width:960px){.nav{display:none}.header-right>.btn{display:none}
-      .facts-grid{grid-template-columns:repeat(3,1fr)}.about-grid,.location-grid{grid-template-columns:1fr}.badge-grid{grid-template-columns:1fr 1fr}.feature{grid-template-columns:1fr}.feature-media{height:440px}.feature.breakfast .feature-media{order:0}
+      .facts-grid{grid-template-columns:repeat(3,1fr)}.about-grid,.location-grid,.request-grid{grid-template-columns:1fr}.request-grid{gap:30px}.badge-grid{grid-template-columns:1fr 1fr}.feature{grid-template-columns:1fr}.feature-media{height:440px}.feature.breakfast .feature-media{order:0}
       .outside-grid,.travel-grid{grid-template-columns:1fr 1fr}.day-grid{grid-template-columns:1fr 1fr}.who-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr 1fr}}
     @media(max-width:600px){body{padding-bottom:64px}.wrap{width:calc(100% - 26px)}.section{padding:62px 0}.hero{min-height:660px}.hero-content{padding:60px 0 50px}
-      .facts-grid{grid-template-columns:1fr 1fr}.fact{padding:16px 10px}.badge-grid{grid-template-columns:1fr}.room-grid,.fields{grid-template-columns:1fr}.field.full{grid-column:auto}
+      .facts-grid{grid-template-columns:1fr 1fr}.fact{padding:16px 10px}.badge-grid{grid-template-columns:1fr}.room-grid,.fields,.request-form{grid-template-columns:1fr}.request-form{padding:22px 16px}.field.full{grid-column:auto}
       .outside-grid,.travel-grid,.day-grid,.who-grid{grid-template-columns:1fr}
       .gallery{grid-template-columns:1fr;grid-template-rows:auto}.gallery figure,.gallery figure:first-child{grid-column:auto;height:210px}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:7px}
       .mobile-sticky{display:grid;grid-template-columns:1fr 1fr;position:fixed;bottom:0;left:0;right:0;background:#fff;padding:9px;gap:8px;z-index:40;border-top:1px solid var(--line)}
@@ -103,7 +111,7 @@
     <section class="hero"><div class="hero-media"><video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="images/hero.jpg"><source src="hero-bg.mp4" type="video/mp4"></video></div><div class="wrap hero-content"><span class="eyebrow">Садиба · Кам’янець-Подільський</span><h1>Смотрицька Перлина</h1><h2>Місце, де легко відпочити</h2><p>Затишне проживання зі сніданком, Wi-Fi, безкоштовною парковкою та простором на свіжому повітрі.</p><div class="actions"><a class="btn primary" href="#rooms">Переглянути проживання</a><a class="btn" style="border-color:#fff;color:#fff" href="tel:+380984115194">Зателефонувати</a></div><div class="hero-address"><span>вул. Олександра Удовиченка, 14<br><small>у джерелі також зазначена попередня назва: вул. Папаніна</small></span><a href="https://www.google.com/maps/search/?api=1&query=Смотрицька+Перлина,+вул.+Олександра+Удовиченка+14,+Кам’янець-Подільський" target="_blank" rel="noopener">Показати на карті →</a></div></div></section>
     <section class="facts"><div class="wrap facts-grid"><div class="fact"><b>Сніданок</b><span>Сніданки</span></div><div class="fact"><b>Безкоштовний Wi-Fi</b><span>Підтверджено</span></div><div class="fact"><b>Паркування</b><span>Джерельна інформація</span></div><div class="fact"><b>Балкони</b><span>Підтверджено</span></div><div class="fact"><b>EV-зарядка</b><span>Підтверджено</span></div><div class="fact"><b>24/7</b><span>Рецепція</span></div></div></section>
     <section class="section" id="about"><div class="wrap about-grid"><div><span class="eyebrow">Про садибу</span><h2>Садиба з практичним комфортом</h2><p class="lead">«Смотрицька Перлина» поєднує камерний формат садиби з набором зручностей, який зазвичай очікує сучасний гість.</p><a class="btn dark" href="#rooms">Відкрити садибу</a></div><div><p style="font-size:.82rem;color:var(--muted);margin:0 0 12px;text-transform:uppercase;letter-spacing:.08em;font-weight:700">Підтверджені зручності</p><div class="badge-grid reveal-group"><div class="badge reveal-item">Кондиціонування</div><div class="badge reveal-item">Балкони</div><div class="badge reveal-item">Безкоштовний Wi-Fi</div><div class="badge reveal-item">Рецепція 24/7</div><div class="badge reveal-item">EV-зарядка</div><div class="badge reveal-item">Кав’ярня</div><div class="badge reveal-item">Місця для відпочинку надворі</div><div class="badge reveal-item">Зона для пікніка</div><div class="badge reveal-item">Обслуговування в номері</div></div><div class="about-note"><strong>За даними джерела:</strong> сніданок, безкоштовна парковка на території та телебачення. Уточнюйте ці деталі телефоном перед бронюванням.</div></div></div></section>
-    <section class="section rooms" id="rooms"><div class="wrap"><div class="rooms-head"><div><span class="eyebrow">ПРОЖИВАННЯ</span><h2>Залишайтеся у комфорті</h2></div><p>Точна кількість номерів та їхні категорії наразі не підтверджені. Нижче наведено лише приклад формату проживання.</p></div><div class="room-grid reveal-group"><figure class="room reveal-item"><img src="images/room-a.jpg" alt="Приклад номера, ілюстративне зображення"><figcaption class="room-tag"><strong>Приклад номера</strong><small>Категорію, площу та ціну уточнюйте</small></figcaption></figure><figure class="room reveal-item"><img src="images/room-b.jpg" alt="Приклад іншого номера, ілюстративне зображення"><figcaption class="room-tag"><strong>Інший формат</strong><small>Категорію, площу та ціну уточнюйте</small></figcaption></figure></div><div class="rooms-note"><strong>Уточнюйте телефоном:</strong> кількість номерів, категорію, місткість, площу, санвузол та ціну, оскільки на сайті поки немає підтверджених даних по кожному номеру.</div></div></section>
+    <section class="section rooms" id="rooms"><div class="wrap"><div class="rooms-head"><div><span class="eyebrow">ПРОЖИВАННЯ</span><h2>Залишайтеся у комфорті</h2></div><p>Точна кількість номерів та їхні категорії наразі не підтверджені. Нижче наведено лише приклад формату проживання.</p></div><div class="room-grid reveal-group"><figure class="room reveal-item"><img src="images/room-a.jpg" alt="Приклад номера, ілюстративне зображення"><figcaption class="room-tag"><strong>Приклад номера</strong><small>Категорію, площу та ціну уточнюйте</small></figcaption></figure><figure class="room reveal-item"><img src="images/room-b.jpg" alt="Приклад іншого номера, ілюстративне зображення"><figcaption class="room-tag"><strong>Інший формат</strong><small>Категорію, площу та ціну уточнюйте</small></figcaption></figure></div><div class="rooms-note"><strong>Уточнюйте телефоном:</strong> кількість номерів, категорію, місткість, площу, санвузол та ціну, оскільки на сайті поки немає підтверджених даних по кожному номеру. Або <a href="#stay-request" style="color:var(--terracotta);font-weight:700;text-decoration:underline">залиште запит</a>, і ми передзвонимо.</div></div></section>
     <section class="feature balcony" id="balcony"><div class="feature-media"><img src="images/balcony.jpg" alt="Балкон, ілюстративне зображення"></div><div class="feature-copy"><div><span class="eyebrow">НА ПОВІТРІ</span><h2>Вийдіть на балкон</h2><p class="lead">Балкони: підтверджена зручність «Смотрицької Перлини». Вигляд із конкретного балкона (каньйон, Старе місто, фортеця) не підтверджено, тому сторінка говорить лише про сам факт наявності балкона.</p><a class="btn dark" href="#rooms">Переглянути номери</a></div></div></section>
     <section class="feature breakfast" id="breakfast"><div class="feature-copy"><div><span class="eyebrow">РАНОК</span><h2>Почніть ранок зі сніданку</h2><p class="lead">У джерельному описі підтверджені сніданки. Формат (included/paid), години роботи, меню та варіанти для дітей і вегетаріанців потрібно уточнити безпосередньо в садибі.</p><a class="btn primary" href="tel:+380984115194">Дізнатися про сніданок</a><p class="fine">Це джерельна інформація, а не окремо верифікована зручність.</p></div></div><div class="feature-media"><img src="images/breakfast.jpg" alt="Сніданок, ілюстративне зображення"></div></section>
     <section class="section outside" id="outside"><div class="wrap"><span class="eyebrow">НАДВОРІ</span><h2>Трохи більше часу на свіжому повітрі</h2><p class="lead">Кав’ярня, місця для відпочинку надворі та зона для пікніка підтверджені у переліку зручностей: формат, години роботи та деталі кожного з них ще потрібно уточнити.</p><div class="outside-grid reveal-group"><article class="outside-card reveal-item"><img src="images/coffee.jpg" alt="Кав’ярня, ілюстративне зображення" loading="lazy"><div><h3>Кав’ярня</h3><p>Кава без поспіху. Формат і години роботи уточнюються.</p></div></article><article class="outside-card reveal-item"><img src="images/outdoor.jpg" alt="Місця для відпочинку надворі, ілюстративне зображення" loading="lazy"><div><h3>Надворі</h3><p>Простір для кави, відпочинку та неспішної паузи.</p></div></article><article class="outside-card reveal-item"><img src="images/picnic.jpg" alt="Зона для пікніка, ілюстративне зображення" loading="lazy"><div><h3>Зона для пікніка</h3><p>Підтверджено сам факт наявності; BBQ та мангал не заявляються без даних.</p></div></article></div></div></section>
@@ -113,10 +121,11 @@
     <section class="section location" id="contacts"><div class="wrap location-grid"><div class="map-card"><div><span class="eyebrow">Розташування</span><h2 style="font:600 clamp(1.9rem,4vw,2.8rem)/1.05 var(--serif);margin:.2em 0">Смотрицька Перлина у Кам’янці-Подільському</h2></div><div><p>вул. Олександра Удовиченка, 14<br><small style="color:#d8cdbb">колишня назва: вул. Папаніна</small></p><a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Смотрицька+Перлина,+вул.+Олександра+Удовиченка+14,+Кам’янець-Подільський" target="_blank" rel="noopener">Відкрити у Google Maps ↗</a></div></div><div class="contact-card"><span class="eyebrow">Контакти</span><h2 style="font:600 clamp(1.9rem,4vw,2.8rem)/1.05 var(--serif);margin:.2em 0">Смотрицька Перлина</h2><a class="big" href="tel:+380984115194">+38 098 411 51 94</a><dl><dt>Адреса</dt><dd>вул. Олександра Удовиченка, 14, Кам’янець-Подільський</dd><dt>Email / сайт / Instagram</dt><dd>Не підтверджено</dd><dt>Check-in / Check-out</dt><dd>Уточніть телефоном</dd></dl></div></div></section>
     <section class="section" id="gallery"><div class="wrap"><span class="eyebrow">Галерея</span><h2>Подивіться ближче</h2><div class="gallery reveal-group"><figure class="reveal-item"><img src="images/hero.jpg" alt="Ілюстративний вигляд садиби" loading="lazy"></figure><figure class="reveal-item"><img src="images/room-a.jpg" alt="Ілюстративний номер" loading="lazy"></figure><figure class="reveal-item"><img src="images/balcony.jpg" alt="Ілюстративний балкон" loading="lazy"></figure><figure class="reveal-item"><img src="images/breakfast.jpg" alt="Ілюстративний сніданок" loading="lazy"></figure></div><p class="gallery-note">Зображення поки ілюстративні та передають атмосферу садиби. Реальні фото номерів, балконів, сніданку та території буде додано пізніше.</p></div></section>
     <section class="section reviews" id="reviews"><div class="wrap"><span class="eyebrow">Відгуки</span><h2>Чесно про відгуки</h2><div class="reviews-box">Наразі підтверджений рейтинг чи кількість відгуків для «Смотрицької Перлини» відсутні в перевірених даних, навіть якщо об’єкт присутній на Booking.com. Показувати вигадану чи застарілу оцінку ми не будемо; реальні відгуки з’являться тут після перевірки.</div></div></section>
+    <section class="section request" id="stay-request"><div class="wrap request-grid"><div class="reveal"><span class="eyebrow">Запит на проживання</span><h2>Залиште номер, ми передзвонимо</h2><p class="lead">Вкажіть телефон і, за бажанням, дати поїздки. Ми зателефонуємо, щоб уточнити наявність, номер, вартість і час заселення.</p><a class="request-phone" href="tel:+380984115194">+38 098 411 51 94</a></div><form class="request-form reveal" data-hotelos data-form-name="Запит на проживання" novalidate><label class="field full">Телефон<small>Обов’язково, щоб ми могли передзвонити</small><input name="phone" type="tel" autocomplete="tel" inputmode="tel" required><span data-error-for="phone"></span></label><label class="field">Ім’я<input name="name" type="text" autocomplete="name" maxlength="200"></label><label class="field">Гостей<input name="guests" type="number" min="1" max="50" inputmode="numeric"></label><label class="field">Дата заїзду<input name="checkIn" type="date"></label><label class="field">Дата виїзду<input name="checkOut" type="date"><span data-error-for="checkOut"></span></label><label class="field full">Побажання<textarea name="message" maxlength="5000"></textarea></label><label class="trap" aria-hidden="true">Не заповнюйте<input name="website" type="text" tabindex="-1" autocomplete="off"></label><div class="request-foot"><button class="btn primary" type="submit">Надіслати запит</button><p class="request-note">Номер використаємо лише для відповіді на цей запит.</p></div><p data-status role="status" aria-live="polite"></p></form></div></section>
     <section class="section booking" id="booking"><div class="wrap"><div class="contact-card" style="max-width:520px;margin:0 auto;text-align:center"><span class="eyebrow">Контакти</span><h2 style="font:600 clamp(1.9rem,4vw,2.8rem)/1.05 var(--serif);margin:.2em 0">Зв'яжіться з нами</h2><p class="lead" style="margin:0 auto 20px">Зателефонуйте, щоб уточнити наявність, кімнату та вартість.</p><a class="big" href="tel:+380984115194">+38 098 411 51 94</a><dl><dt>Адреса</dt><dd>вул. Олександра Удовиченка, 14, Кам’янець-Подільський</dd></dl><a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Смотрицька+Перлина,+вул.+Олександра+Удовиченка+14,+Кам’янець-Подільський" target="_blank" rel="noopener">Відкрити у Google Maps ↗</a></div></div></section>
-    <section class="final"><img src="images/hero.jpg" alt="Смотрицька Перлина, ілюстративне зображення"><div><span class="eyebrow" style="color:#f0cf95">Сніданок · Безкоштовний Wi-Fi · Паркування · EV-зарядка</span><h2>Зупиніться там, де легко почуватися спокійно</h2><p>Сніданок, Wi-Fi, парковка, балкони та простір надворі, у «Смотрицькій Перлині».</p><div class="actions"><a class="btn primary" href="#booking">Контакти</a><a class="btn" style="border-color:#fff;color:#fff" href="tel:+380984115194">+38 098 411 51 94</a></div></div></section>
+    <section class="final"><img src="images/hero.jpg" alt="Смотрицька Перлина, ілюстративне зображення"><div><span class="eyebrow" style="color:#f0cf95">Сніданок · Безкоштовний Wi-Fi · Паркування · EV-зарядка</span><h2>Зупиніться там, де легко почуватися спокійно</h2><p>Сніданок, Wi-Fi, парковка, балкони та простір надворі, у «Смотрицькій Перлині».</p><div class="actions"><a class="btn primary" href="#stay-request">Залишити запит</a><a class="btn" style="border-color:#fff;color:#fff" href="#booking">Контакти</a><a class="btn" style="border-color:#fff;color:#fff" href="tel:+380984115194">+38 098 411 51 94</a></div></div></section>
   </main>
-  <footer><div class="wrap"><div class="footer-grid"><div class="footer-brand"><strong>СМОТРИЦЬКА ПЕРЛИНА</strong><small>Садиба · Кам’янець-Подільський</small></div><div class="footer-col"><b>Проживання</b><a href="#rooms">Номери</a><a href="#booking">Контакти</a><a href="#travel">Обслуговування в номері</a></div><div class="footer-col"><b>Ранок</b><a href="#breakfast">Сніданки</a><a href="#outside">Кав’ярня</a></div><div class="footer-col"><b>Надворі</b><a href="#outside">Місця для відпочинку</a><a href="#outside">Зона для пікніка</a></div><div class="footer-col"><b>У дорозі</b><a href="#travel">Парковка</a><a href="#travel">EV-зарядка</a></div></div><div class="footer-bottom"><span>вул. Олександра Удовиченка, 14 · Кам’янець-Подільський</span><span>+38 098 411 51 94</span></div></div></footer>
+  <footer><div class="wrap"><div class="footer-grid"><div class="footer-brand"><strong>СМОТРИЦЬКА ПЕРЛИНА</strong><small>Садиба · Кам’янець-Подільський</small></div><div class="footer-col"><b>Проживання</b><a href="#rooms">Номери</a><a href="#stay-request">Запит на проживання</a><a href="#booking">Контакти</a><a href="#travel">Обслуговування в номері</a></div><div class="footer-col"><b>Ранок</b><a href="#breakfast">Сніданки</a><a href="#outside">Кав’ярня</a></div><div class="footer-col"><b>Надворі</b><a href="#outside">Місця для відпочинку</a><a href="#outside">Зона для пікніка</a></div><div class="footer-col"><b>У дорозі</b><a href="#travel">Парковка</a><a href="#travel">EV-зарядка</a></div></div><div class="footer-bottom"><span>вул. Олександра Удовиченка, 14 · Кам’янець-Подільський</span><span>+38 098 411 51 94</span></div></div></footer>
   <div class="mobile-sticky"><a href="tel:+380984115194">Зателефонувати</a><a href="#booking">Контакти</a></div>
   <script>
     const observer=new IntersectionObserver(entries=>entries.forEach(e=>e.isIntersecting&&e.target.classList.add('visible')),{threshold:.12});document.querySelectorAll('.reveal,.reveal-group').forEach(el=>observer.observe(el));
@@ -130,6 +139,153 @@
         addEventListener('scroll',()=>{const r=hero.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)heroMedia.style.transform=`translateY(${scrollY*.28}px)`},{passive:true});
       }
     }
+  </script>
+  <script type="module">
+// HotelOS site forms. Paste this whole block into the site's index.html as an inline module
+// script right before the closing body tag, and set the three constants below. Never put a
+// literal closing script tag inside this file: it would end the inline script early.
+// Contract (hotelos.webart.work/CRM.md → Submission data contract, firestore.rules):
+// - every form is <form data-hotelos data-form-name="…" novalidate> inside a <section id="{formId}">;
+//   the section id IS the formId (stable slug, e.g. stay-request, sauna-request) and the CRM
+//   links to SITE + '#' + formId, so the link scrolls to the start of that section;
+// - fields are matched by name: phone (required), name, email, message, checkIn, checkOut, guests,
+//   roomType, date, time, service; a [data-genders] box renders one select per guest (hostels);
+// - errors go to [data-error-for="<name>"], the result to [data-status]; `website` is a honeypot.
+const HOTEL_ID = 'kp-perlyna'; // Firestore hotels/{id}: 'kp-' + site folder name
+const SITE = 'https://perlyna.webart.work/'; // from the site's CNAME
+const PHONE = '+38 098 411 51 94'; // shown when sending fails
+
+const FIREBASE = {
+	apiKey: 'AIzaSyBeSB5EuC4BBSpmCGA3Pjk7dD_JV2SdcSQ',
+	authDomain: 'hotel-upwork.firebaseapp.com',
+	projectId: 'hotel-upwork',
+	appId: '1:40129364672:web:c9659550ebf0f1d8a36325',
+};
+const SDK = 'https://www.gstatic.com/firebasejs/12.19.0/';
+const TEXT_FIELDS = ['name', 'email', 'message', 'checkIn', 'checkOut', 'date', 'time', 'roomType', 'service'];
+const today = new Date(Date.now() - new Date().getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
+
+let db;
+async function firestore() {
+	if (db) return db;
+	// Loaded on first submit only, so the page itself stays light.
+	const [{ initializeApp }, lite] = await Promise.all([import(SDK + 'firebase-app.js'), import(SDK + 'firebase-firestore-lite.js')]);
+	db = { lite, store: lite.getFirestore(initializeApp(FIREBASE)) };
+	return db;
+}
+
+function setup(form) {
+	const formId = form.closest('section[id]')?.id;
+	if (!formId) return console.error('HotelOS form needs a parent <section id="formId">', form);
+	const field = (name) => form.elements.namedItem(name);
+	const statusEl = form.querySelector('[data-status]');
+	const submit = form.querySelector('[type=submit]');
+	const submitLabel = submit.textContent;
+	const gendersBox = form.querySelector('[data-genders]');
+
+	for (const name of ['checkIn', 'checkOut', 'date']) if (field(name)) field(name).min = today;
+	if (field('checkIn') && field('checkOut')) {
+		field('checkIn').addEventListener('change', () => {
+			const checkIn = field('checkIn').value;
+			field('checkOut').min = checkIn || today;
+			if (field('checkOut').value && field('checkOut').value <= checkIn) field('checkOut').value = '';
+		});
+	}
+
+	// Hostels: one gender select per guest, kept in sync with the guests count.
+	function renderGenders() {
+		if (!gendersBox) return;
+		const count = Math.min(Math.max(parseInt(field('guests')?.value, 10) || 1, 1), 20);
+		const current = [...gendersBox.querySelectorAll('select')].map((select) => select.value);
+		gendersBox.replaceChildren(
+			...Array.from({ length: count }, (_, i) => {
+				const label = document.createElement('label');
+				label.textContent = `Гість ${i + 1}`;
+				const select = document.createElement('select');
+				select.name = 'gender';
+				select.required = true;
+				select.innerHTML = '<option value="">Стать</option><option value="female">Жінка</option><option value="male">Чоловік</option>';
+				select.value = current[i] ?? '';
+				label.append(select);
+				return label;
+			}),
+		);
+	}
+	if (gendersBox) {
+		field('guests')?.addEventListener('input', renderGenders);
+		renderGenders();
+	}
+
+	function setError(name, text) {
+		const input = field(name);
+		if (input instanceof Element) input.setAttribute('aria-invalid', text ? 'true' : 'false');
+		const slot = form.querySelector(`[data-error-for="${name}"]`);
+		if (slot) slot.textContent = text;
+	}
+
+	function showStatus(state, html) {
+		statusEl.dataset.state = state;
+		statusEl.innerHTML = html;
+	}
+
+	form.addEventListener('submit', async (event) => {
+		event.preventDefault();
+		showStatus('', '');
+		const phone = field('phone').value.trim();
+		const digits = phone.replace(/\D/g, '');
+		setError('phone', digits.length < 9 || digits.length > 15 ? 'Вкажіть номер телефону, щоб ми могли передзвонити.' : '');
+		if (field('checkIn') && field('checkOut')) {
+			const { value: checkIn } = field('checkIn');
+			const { value: checkOut } = field('checkOut');
+			setError('checkOut', checkIn && checkOut && checkOut <= checkIn ? 'Дата виїзду має бути пізніше за дату заїзду.' : '');
+		}
+		const genderSelects = gendersBox ? [...gendersBox.querySelectorAll('select')] : [];
+		if (gendersBox) {
+			const missing = genderSelects.some((select) => !select.value);
+			for (const select of genderSelects) select.setAttribute('aria-invalid', missing && !select.value ? 'true' : 'false');
+			const slot = form.querySelector('[data-error-for="genders"]');
+			if (slot) slot.textContent = missing ? 'Вкажіть стать кожного гостя, щоб ми підібрали місця.' : '';
+		}
+		const invalid = form.querySelector('[aria-invalid=true]');
+		if (invalid) return invalid.focus();
+
+		const thanks = `Дякуємо! Ми зателефонуємо на ${phone.replace(/</g, '')} найближчим часом.`;
+		// Bots fill the hidden field: pretend success, send nothing.
+		if (field('website')?.value) {
+			form.reset();
+			renderGenders();
+			return showStatus('ok', thanks);
+		}
+
+		const lead = { phone, formId, formName: form.dataset.formName, site: SITE, hotelId: HOTEL_ID };
+		for (const name of TEXT_FIELDS) {
+			const value = field(name)?.value?.trim();
+			if (value) lead[name] = value;
+		}
+		const guests = parseInt(field('guests')?.value, 10);
+		if (guests >= 1 && guests <= 50) lead.guests = guests;
+		if (genderSelects.length) lead.genders = genderSelects.map((select) => select.value);
+
+		submit.disabled = true;
+		submit.textContent = 'Надсилаємо…';
+		try {
+			const { lite, store } = await firestore();
+			await lite.addDoc(lite.collection(store, 'submissions'), { ...lead, status: 'new', history: [], createdAt: lite.serverTimestamp() });
+			form.reset();
+			if (field('checkOut')) field('checkOut').min = today;
+			renderGenders();
+			showStatus('ok', thanks);
+		} catch (error) {
+			console.error(error);
+			showStatus('error', `Не вдалося надіслати запит. Зателефонуйте нам: <a href="tel:${PHONE.replace(/[^\d+]/g, '')}">${PHONE}</a>.`);
+		} finally {
+			submit.disabled = false;
+			submit.textContent = submitLabel;
+		}
+	});
+}
+
+document.querySelectorAll('form[data-hotelos]').forEach(setup);
   </script>
 </body>
 </html>
